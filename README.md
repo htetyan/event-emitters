@@ -1,5 +1,5 @@
 EVENT EMITTERS
-##############
+==============
 
 Event emitters are objects in Node.js that trigger an event by sending a signal to indicate that an action was taken. 
 
