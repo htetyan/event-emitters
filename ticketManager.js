@@ -6,8 +6,13 @@ class TicketManager extends EventEmitter {
         this.supply = supply;
     }
     buy (email,price) {
-        this.supply--;
-        this.emit("buy", email, price, Date.now());
+        if (this.supply > 0) {
+          this.supply--;
+          this.emit("buy", email, price, Date.now());
+          return;
+        } else {
+            this.emit("error", new Error("There are no more tickets left to purchase"));
+        }
     }
 }
 module.exports = TicketManager;
